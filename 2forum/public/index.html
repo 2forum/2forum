@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2ФОРУМ</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="top-bar">
+  <div class="app-container top-bar__inner">
+    <button type="button" class="button button--secondary" id="loginBtn">Войти</button>
+    <button type="button" class="button button--primary" id="signupBtn">Регистрация</button>
+    <span class="top-bar__user button--hidden" id="userLabel"></span>
+    <button type="button" class="button button--secondary button--hidden" id="logoutBtn">Выйти</button>
+  </div>
+</header>
+
+<main class="app-container page">
+  <div class="post-feed" id="feed"></div>
+</main>
+
+<footer class="action-bar">
+  <div class="app-container action-bar__inner">
+    <div class="action-bar__stage" id="stage">
+
+      <button
+        type="button"
+        class="button button--primary composer-toggle"
+        id="composerToggle"
+      >Создать пост</button>
+
+      <section class="composer" id="composer">
+        <form class="composer__form" id="composerForm" novalidate>
+          <input
+            type="text"
+            class="text-field text-field--title"
+            id="titleField"
+            placeholder="Заголовок"
+            maxlength="100"
+            autocomplete="off"
+          >
+          <textarea
+            class="text-field text-field--multiline"
+            id="contentField"
+            placeholder="Текст поста..."
+            maxlength="1000"
+          ></textarea>
+          <div class="composer__actions">
+            <button
+              type="button"
+              class="button composer__cancel"
+              id="composerCancel"
+            >Отмена</button>
+            <button
+              type="button"
+              class="button button--icon composer__submit"
+              id="composerSubmit"
+              aria-label="Отправить"
+            >
+              <svg class="arrow-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M4 12 H19 M14 6 L20 12 L14 18" />
+              </svg>
+            </button>
+          </div>
+        </form>
+      </section>
+
+    </div>
+  </div>
+</footer>
+
+<div class="modal" id="modal">
+  <div class="modal__panel">
+    <h2 class="modal__title" id="modalTitle">Войти</h2>
+    <form class="modal__form" id="modalForm" novalidate>
+      <input type="text" class="text-field" id="modalNickname" placeholder="Никнейм" maxlength="30" autocomplete="off">
+      <input type="password" class="text-field" id="modalPassword" placeholder="Пароль" maxlength="100" autocomplete="off">
+      <div class="modal__repeat" id="modalRepeat">
+        <input type="password" class="text-field" id="modalPasswordRepeat" placeholder="Повторите пароль" maxlength="100" autocomplete="off">
+      </div>
+      <p class="modal__error" id="modalError"></p>
+      <div class="modal__actions">
+        <button type="button" class="button button--secondary" id="modalCancel">Отмена</button>
+        <button type="submit" class="button button--primary" id="modalSubmit">Войти</button>
+      </div>
+      <p class="modal__switch" id="modalSwitch"></p>
+    </form>
+  </div>
+</div>
+
+<div class="modal" id="confirmModal">
+  <div class="modal__panel">
+    <h2 class="modal__title" id="confirmTitle"></h2>
+    <p class="modal__text" id="confirmText"></p>
+    <div class="modal__actions">
+      <button type="button" class="button button--secondary" id="confirmCancel">Отмена</button>
+      <button type="button" class="button button--primary" id="confirmOk">Подтвердить</button>
+    </div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

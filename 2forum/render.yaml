@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: 2forum
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: DATABASE_URL
+        sync: false
